@@ -6,6 +6,8 @@ import securityCameraImg from '../src/assets/img/smartclean.png';
 import doorLockImg from '../src/assets/img/doorlock.jpeg';
 import smartSpeakerImg from '../src/assets/img/smartspeaker.jpeg';
 
+import ReactGA from 'react-ga4';
+
 function App() {
   const products = [
     {
@@ -57,6 +59,7 @@ function App() {
       rating: Math.floor(Math.random() * 5) + 1,
     },
   ];
+
 
   return (
     <>
