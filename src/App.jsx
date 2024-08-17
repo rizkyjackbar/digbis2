@@ -1,4 +1,3 @@
-// import React from 'react';
 import headerImg from '../src/assets/img/Header.png';
 import smartHomeHubImg from '../src/assets/img/wifisupersonic.png';
 import lightBulbImg from '../src/assets/img/breadboard.png';
@@ -65,18 +64,18 @@ function App() {
         className="flex items-start justify-start h-screen bg-cover bg-center"
         style={{ backgroundImage: `url(${headerImg})` }}
       >
-        <div className="w-1/2 p-8 bg-opacity-75 rounded">
+        <div className="w-1/2 p-8 bg-opacity-75 rounded my-20">
           <h1
             className="mb-4"
             style={{ fontFamily: 'Gelasio, serif', fontSize: '72px', textAlign: 'left', lineHeight: '1.1' }}
           >
-            Connect Your World: Empowering Innovators with IoTight Solutions
+            “Connect Your World: Empowering Innovators with <span style={{ color: '#608F6E' }}>IoTight</span> Solutions”
           </h1>
           <h3
             className="mb-4 text-left text-gray-700"
             style={{ fontFamily: 'Gelasio, serif', fontSize: '24px', lineHeight: '1.5' }}
           >
-            Terkoneksi dengan Inovasi: Solusi IoT untuk Masa Depan yang Lebih Baik!
+            “Terkoneksi dengan Inovasi: Solusi IoT untuk Masa Depan yang Lebih Baik!”
           </h3>
           <button className="bg-[#1E1E1E] text-white px-6 py-3 rounded-full hover:bg-gray-800">
             Shop Now
@@ -85,7 +84,7 @@ function App() {
       </div>
 
       {/* Best Products Section with Horizontal Scrolling */}
-      <div className="p-8">
+      <div className="p-8 mb-10">
         <h2
           className="text-3xl font-semibold mb-2"
           style={{ fontFamily: 'Gelasio, serif', textAlign: 'center' }}
@@ -101,18 +100,19 @@ function App() {
         <div className="overflow-x-auto">
           <div className="flex space-x-4" style={{ width: 'calc(100% + 16px)' }}>
             {products.map((product) => (
-              <div key={product.id} className="flex-shrink-0 w-1/4 border rounded-lg p-4 shadow-md">
+              <a
+                key={product.id}
+                href={`/product/${product.id}`}
+                className="flex-shrink-0 w-1/4 border rounded-lg p-4 shadow-md hover:shadow-xl transition-transform duration-300 transform hover:-translate-y-2 cursor-pointer"
+              >
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-32 object-cover rounded-t-lg mb-4"
+                  className="w-full object-cover rounded-t-lg mb-4 h-72"
                 />
                 <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
                 <p className="text-gray-600 text-sm mb-4">{product.description}</p>
                 <p className="text-md font-semibold">{product.price}</p>
-                <button className="mt-4 bg-[#1E1E1E] text-white px-2 py-1 rounded hover:bg-gray-800">
-                  Buy Now
-                </button>
                 <div className="mt-2">
                   {Array.from({ length: product.rating }, (_, i) => (
                     <span key={i} className="text-yellow-500">★</span>
@@ -121,7 +121,7 @@ function App() {
                     <span key={i} className="text-gray-300">★</span>
                   ))}
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>
