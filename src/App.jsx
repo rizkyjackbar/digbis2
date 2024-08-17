@@ -1,7 +1,64 @@
 // import React from 'react';
 import headerImg from '../src/assets/img/Header.png';
+import smartHomeHubImg from '../src/assets/img/wifisupersonic.png';
+import lightBulbImg from '../src/assets/img/breadboard.png';
+import thermostatImg from '../src/assets/img/plantwater.png';
+import securityCameraImg from '../src/assets/img/smartclean.png';
+import doorLockImg from '../src/assets/img/doorlock.jpeg';
+import smartSpeakerImg from '../src/assets/img/smartspeaker.jpeg';
 
 function App() {
+  const products = [
+    {
+      id: 1,
+      name: "Wifi Supersonic",
+      description: "Experience lightning-fast internet speeds with the Wifi Supersonic, designed for seamless streaming and browsing across multiple devices.",
+      price: "$99.99",
+      image: smartHomeHubImg,
+      rating: Math.floor(Math.random() * 5) + 1,
+    },
+    {
+      id: 2,
+      name: "BreadBoard",
+      description: "An essential tool for any electronics enthusiast, the BreadBoard is perfect for prototyping circuits and testing new designs.",
+      price: "$19.99",
+      image: lightBulbImg,
+      rating: Math.floor(Math.random() * 5) + 1,
+    },
+    {
+      id: 3,
+      name: "Automatic Plant Waterer",
+      description: "Keep your plants hydrated with the Automatic Plant Waterer, ensuring they get the right amount of water even when you're away.",
+      price: "$149.99",
+      image: thermostatImg,
+      rating: Math.floor(Math.random() * 5) + 1,
+    },
+    {
+      id: 4,
+      name: "Smart Clean",
+      description: "Effortlessly keep your home spotless with the Smart Clean, a powerful robotic vacuum that navigates around obstacles with ease.",
+      price: "$129.99",
+      image: securityCameraImg,
+      rating: Math.floor(Math.random() * 5) + 1,
+    },
+    {
+      id: 5,
+      name: "Smart Door Lock",
+      description: "Upgrade your home security with the Smart Door Lock, offering keyless entry and remote access from your smartphone.",
+      price: "$89.99",
+      image: doorLockImg,
+      rating: Math.floor(Math.random() * 5) + 1,
+    },
+    {
+      id: 6,
+      name: "Smart Speaker",
+      description: "Enjoy high-quality audio and voice-activated assistance with the Smart Speaker, your hub for smart home control and entertainment.",
+      price: "$59.99",
+      image: smartSpeakerImg,
+      rating: Math.floor(Math.random() * 5) + 1,
+    },
+  ];
+
   return (
     <>
       <div
@@ -15,9 +72,58 @@ function App() {
           >
             Connect Your World: Empowering Innovators with IoTight Solutions
           </h1>
-          <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+          <h3
+            className="mb-4 text-left text-gray-700"
+            style={{ fontFamily: 'Gelasio, serif', fontSize: '24px', lineHeight: '1.5' }}
+          >
+            Terkoneksi dengan Inovasi: Solusi IoT untuk Masa Depan yang Lebih Baik!
+          </h3>
+          <button className="bg-[#1E1E1E] text-white px-6 py-3 rounded-full hover:bg-gray-800">
             Shop Now
           </button>
+        </div>
+      </div>
+
+      {/* Best Products Section with Horizontal Scrolling */}
+      <div className="p-8">
+        <h2
+          className="text-3xl font-semibold mb-2"
+          style={{ fontFamily: 'Gelasio, serif', textAlign: 'center' }}
+        >
+          Best Products
+        </h2>
+        <p
+          className="text-lg text-gray-600 mb-6 text-center"
+          style={{ fontFamily: 'Gelasio, serif' }}
+        >
+          Discover our most popular product
+        </p>
+        <div className="overflow-x-auto">
+          <div className="flex space-x-4" style={{ width: 'calc(100% + 16px)' }}>
+            {products.map((product) => (
+              <div key={product.id} className="flex-shrink-0 w-1/4 border rounded-lg p-4 shadow-md">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-full h-32 object-cover rounded-t-lg mb-4"
+                />
+                <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
+                <p className="text-gray-600 text-sm mb-4">{product.description}</p>
+                <p className="text-md font-semibold">{product.price}</p>
+                <button className="mt-4 bg-[#1E1E1E] text-white px-2 py-1 rounded hover:bg-gray-800">
+                  Buy Now
+                </button>
+                <div className="mt-2">
+                  {Array.from({ length: product.rating }, (_, i) => (
+                    <span key={i} className="text-yellow-500">★</span>
+                  ))}
+                  {Array.from({ length: 5 - product.rating }, (_, i) => (
+                    <span key={i} className="text-gray-300">★</span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </>
