@@ -67,6 +67,7 @@ function App() {
         <div className="w-full md:w-1/2 p-6 md:p-8 bg-opacity-75 rounded my-10 md:my-20">
           <h1
             className="mb-4 text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight md:leading-none"
+            
             style={{ fontFamily: 'Gelasio, serif', textAlign: 'left' }}
           >
             “Connect Your World: Empowering Innovators with <span style={{ color: '#608F6E' }}>IoTight</span> Solutions”
