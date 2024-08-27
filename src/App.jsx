@@ -6,7 +6,7 @@ import securityCameraImg from '../src/assets/img/smartclean.png';
 import doorLockImg from '../src/assets/img/doorlock.jpeg';
 import smartSpeakerImg from '../src/assets/img/smartspeaker.jpeg';
 
-import ReactGA from 'react-ga4';
+// import ReactGA from 'react-ga4';
 
 function App() {
   const products = [
